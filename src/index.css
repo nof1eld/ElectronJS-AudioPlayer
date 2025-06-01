@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap");
+body {
+  margin: auto;
+  padding: 1.5rem;
+  background-color: #fff4e6;
+  overflow: hidden;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 220px;
+}
+.title {
+  font-family: Jacques Francois, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-style: bold;
+  color: #000;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 10px 10px;
+  margin: 0;
+  min-width: 150px;
+  text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+}
+.song-cover {
+  width: 220px;
+  padding: 1.5px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='black' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='54' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 12px;
+}
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.progress-bar {
+  background-color: #d9d9d9;
+  width: 220px;
+  height: 5px;
+  border-radius: 12px;
+  margin: 0px;
+}
+.progress-bar-filled {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #644545;
+  width: 0%;
+  border-radius: 12px;
+}
+.progress-bar-filled .dot{
+  background-color: #787066;
+  width: 6px;
+  height: 5px;
+  border-radius: 12px;
+}
+.progress-bar-filled:hover {
+  background-color: rgb(62, 57, 52);
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.play-next-previous_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: center;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='black' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='54' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 12px;
+  padding: 12px 15px;
+}
+
+.buttons img, .play-next-previous_container img, header img {
+  width: 30px;
+  height: 30px;
+}
+.active {
+  filter: drop-shadow(0 0 2px #000);
+}
+.buttons img:hover, .play-next-previous_container img:hover, header img:hover {
+  cursor: pointer;
+}

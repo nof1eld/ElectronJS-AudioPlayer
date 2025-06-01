@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Player</title>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <input
+          type="file"
+          id="playlist-folder-input"
+          webkitdirectory
+          directory
+          multiple
+          style="display: none"
+        />
+        <img
+          src="assets/playlist.svg"
+          alt="Choose Playlist"
+          class="choose-playlist"
+        />
+        <p class="title" title="Title - Artist">Title - Artist</p>
+      </header>
+      <img class="song-cover" src="assets/song-cover.png" />
+      <audio id="audio" src=""></audio>
+      <div class="progress">
+        <div class="init-time">0:00</div>
+        <div class="progress-bar">
+          <div class="progress-bar-filled">
+            <div class="dot"></div>
+          </div>
+        </div>
+        <div class="end-time">0:00</div>
+      </div>
+      <div class="buttons">
+        <img class="shuffle" src="assets/shuffle-button.svg" alt="shuffle" />
+
+        <div class="play-next-previous_container">
+          <img
+            class="previous"
+            src="assets/previous-track.svg"
+            alt="previous-track"
+          />
+          <img
+            class="play-pause"
+            src="assets/play-button.svg"
+            alt="play-pause"
+          />
+          <img class="next" src="assets/next-track.svg" alt="next-track" />
+        </div>
+
+        <img class="loop" src="assets/loop-button.svg" alt="loop" />
+      </div>
+    </main>
+    <script src="../resources/lib/jsmediatags.min.js"></script>
+    <script src="local-metadata.js"></script>
+    <script src="renderer.js"></script>
+  </body>
+</html>
