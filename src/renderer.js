@@ -22,8 +22,12 @@ window.addEventListener("DOMContentLoaded", () => {
     // load audio file
     audio.src = URL.createObjectURL(file);
     audioPath = webUtils.getPathForFile(file);
-    // Fetch metadata for the file
+    // initial metadata
+    songCover.src = "assets/song-cover.png";
+    songTitle.textContent = file.name;
+    songTitle.title = songTitle.textContent;
 
+    // Fetch online/local metadata for the file
     const metadata = window.readMetaData(file, audioPath);
     metadata.then((data) => {
       if (data) {

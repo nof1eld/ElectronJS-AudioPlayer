@@ -1,6 +1,11 @@
 const { execFile } = require("child_process");
 const path = require("path");
-const fpcalc = path.join(__dirname, "../resources/bin/win/fpcalc.exe");
+const os = require("os");
+// if os is windows, use the fpcalc executable from resources, if os is linux, use the fpcalc file from resources
+
+const fpcalc = os.platform() === "win32"
+  ? path.join(__dirname, "../resources/bin/win/fpcalc.exe")
+  : path.join(__dirname, "../resources/bin/linux/fpcalc");
 
 // using fpcalc to get audio fingerprint and duration
 function getFileFingerprint(filePath) {
@@ -32,7 +37,6 @@ const getOnlineMetadata = async (filePath) => {
 
     const data = await response.json();
     if (data.results && data.results.length > 0) {
-      console.log("Online metadata fetched:", data);
 
       const recording = data.results[0].recordings[0];
       const releaseID = recording.releases[0].id;
@@ -64,7 +68,7 @@ const getCoverImage = async (releaseID) => {
   }
 
   const data = await response.json();
-  return data.images && data.images.length > 0 ? data.images[0].image : null;
+  return data.images && data.images.length > 0 ? data.images[0].thumbnails.small : null;
 };
 
 window.getOnlineMetadata = getOnlineMetadata;
