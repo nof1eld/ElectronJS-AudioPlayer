@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
+  const { webUtils } = require("electron");
   const playListFolder = document.getElementById("playlist-folder-input");
   const choosePlaylistBtn = document.querySelector(".choose-playlist");
   let playlistFiles = [];
@@ -17,25 +18,23 @@ window.addEventListener("DOMContentLoaded", () => {
   let isLooping = false;
   let currentIndex = 0;
 
-  const loadAndPlayAudio = (file) => {
+  const loadAndPlayAudio = async (file) => {
     // load audio file
     audio.src = URL.createObjectURL(file);
-    audio.load();
-    //play audio file
-    audio.play();
-    // update elements with basic metadata (in case jsmediatags fails)
-    songCover.src = "assets/song-cover.png";
-    songTitle.textContent = file.name;
-    songTitle.title = songTitle.textContent;
-    // get metadata using jsmediatags
-    const metadata = window.readMetaData(file);
+    audioPath = webUtils.getPathForFile(file);
+    // Fetch metadata for the file
+
+    const metadata = window.readMetaData(file, audioPath);
     metadata.then((data) => {
-      songTitle.textContent = data.title || file.name;
-      songTitle.title = songTitle.textContent;
-      if (data.cover) {
-        songCover.src = data.cover;
+      if (data) {
+        songCover.src = data.cover || "assets/song-cover.png";
+        songTitle.textContent = data.title || file.name;
+        songTitle.title = songTitle.textContent;
       }
     });
+
+    audio.load();
+    audio.play();
   };
 
   choosePlaylistBtn.addEventListener("click", () => {
