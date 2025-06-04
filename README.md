@@ -1,4 +1,4 @@
-# Audio Player (Electron)
+# Audio Player (Electron JS)
 
 A cross-platform audio player built with Electron, supporting robust audio metadata extraction from both local tags and online sources (AcoustID/MusicBrainz). Displays title, artist, and cover art, with a support for Windows and Linux.
 
