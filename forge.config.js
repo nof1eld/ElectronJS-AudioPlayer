@@ -5,7 +5,7 @@ module.exports = {
   packagerConfig: {
     asar: true,
     icon: "src/assets/album.ico",
-    executableName: "AudioPlayer",
+    executableName: "audio-player",
   },
   rebuildConfig: {},
   makers: [
