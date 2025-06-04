@@ -18,6 +18,12 @@ A cross-platform audio player built with Electron, supporting robust audio metad
 
 ---
 
+## Screenshot
+
+![Audio Player Screenshot](src/assets/screenshot.png)
+
+---
+
 ## Getting Started
 
 ### Prerequisites
