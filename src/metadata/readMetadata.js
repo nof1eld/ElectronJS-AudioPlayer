@@ -3,9 +3,9 @@ async function readMetaData(file, filePath) {
     const offline = await window.getOfflineMetadata(file);
     console.log("Offline metadata fetched:", offline);
     if (offline) {
-      title = offline.title;
-      artist = offline.artist;
-      cover = offline.cover;
+      title = offline.title === undefined ? null : offline.title;
+      artist = offline.artist === undefined ? null : offline.artist;
+      cover = offline.cover === undefined ? null : offline.cover;
     }
 
     const online = await window.getOnlineMetadata(filePath);
@@ -19,7 +19,7 @@ async function readMetaData(file, filePath) {
     console.log("Metadata used:", { title, artist, cover });
 
     return {
-      title: title + (artist ? ` - ${artist}` : "Unknown Artist"),
+      title: title ? title + (artist ? ` - ${artist}` : " - Unknown Artist") : null,
       cover: cover,
     };
   } catch (error) {
