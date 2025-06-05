@@ -1,4 +1,8 @@
 window.addEventListener("DOMContentLoaded", () => {
+  alert(
+    "⚠️ Warning: This app is for educational purposes ONLY. Use this app for non-other than HALAL use cases."
+  );
+
   const { webUtils } = require("electron");
   const playListFolder = document.getElementById("playlist-folder-input");
   const choosePlaylistBtn = document.querySelector(".choose-playlist");
