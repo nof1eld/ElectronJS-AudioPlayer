@@ -4,6 +4,8 @@ A cross-platform audio player built with Electron, supporting robust audio metad
 
 ---
 
+  ***⚠️ Warning:*** **This app is for educational purposes ONLY, Use this app for non-other than halal use cases.**
+
 ## Features
 
 - **Audio playback**
